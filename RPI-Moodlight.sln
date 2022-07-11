@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPI-Moodlight", "RPI-Moodlight\RPI-Moodlight.csproj", "{2364427C-B2FF-41AD-B060-2A3DF5B6E194}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeFeelClient", "WeFeelClient\WeFeelClient.csproj", "{95BC822D-9BD7-4C82-B669-B16C0EBCDB1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2364427C-B2FF-41AD-B060-2A3DF5B6E194}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2364427C-B2FF-41AD-B060-2A3DF5B6E194}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2364427C-B2FF-41AD-B060-2A3DF5B6E194}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2364427C-B2FF-41AD-B060-2A3DF5B6E194}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95BC822D-9BD7-4C82-B669-B16C0EBCDB1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95BC822D-9BD7-4C82-B669-B16C0EBCDB1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95BC822D-9BD7-4C82-B669-B16C0EBCDB1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95BC822D-9BD7-4C82-B669-B16C0EBCDB1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF006BD1-3F63-4746-9DF4-9A60427E1D62}
+	EndGlobalSection
+EndGlobal
