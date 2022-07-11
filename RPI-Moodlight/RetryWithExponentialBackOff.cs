@@ -12,32 +12,14 @@ namespace RPI_Moodlight
     {
         static Random random = new Random();
 
-        public static void Retry(Action action, int attempts = 10, Predicate<Exception> when = null, CancellationToken? cancellationToken = null)
-            => RetryAsync(Task.Run(action), attempts, when, cancellationToken).RunSync();
-        public static T Retry<T>(Func<T> action, int attempts = 10, Predicate<Exception> when = null, CancellationToken? cancellationToken = null)
-            => RetryAsync(Task.Run(action), attempts, when, cancellationToken).RunSync();
-        public static void Retry(Task action, int attempts = 10, Predicate<Exception> when = null, CancellationToken? cancellationToken = null)
-            => RetryAsync(action, attempts, when, cancellationToken).RunSync();
         public static T Retry<T>(Task<T> action, int attempts = 10, Predicate<Exception> when = null, CancellationToken? cancellationToken = null)
             => RetryAsync(action, attempts, when, cancellationToken).RunSync();
-        public static async Task RetryAsync(Action action, int attempts = 10, Predicate<Exception> when = null, CancellationToken? cancellationToken = null)
-            => await RetryAsync(action, attempts, when, cancellationToken);
-        public static async Task<T> RetryAsync<T>(Func<T> action, int attempts = 10, Predicate<Exception> when = null, CancellationToken? cancellationToken = null)
-            => await RetryAsync(Task.Run(action), attempts, when, cancellationToken);
-        public static async Task RetryAsync(Task action, int attempts = 10, Predicate<Exception> when = null, CancellationToken? cancellationToken = null)
-            => await RetryAsync<object>(Task.Run(async () =>
-            {
-                await action;
-                return default(object);
-            }), 
-            attempts, when, cancellationToken);
         public static async Task<T> RetryAsync<T>(Task<T> action, int attempts = 10, Predicate<Exception> when = null, CancellationToken? cancellationToken = null)
         {
             for (var i = 1; i < attempts; i++)
             {
                 try
                 {
-                    action.Wait(cancellationToken);
                     var r = await action.WaitAsync(cancellationToken ?? new CancellationToken());
                     return r;
                 }

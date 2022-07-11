@@ -19,11 +19,9 @@ try
 
     while (!shouldExit)
     {
-        await RetryWithExponentialBackOff.RetryAsync(async () =>
-        {
-            var emotion = await weFeelClient.GetEmotionAsync();
-            IO_Utilities.Logging("Emotion: " + emotion);
-        }, 10);
+        var emotion = await RetryWithExponentialBackOff.RetryAsync<string>(weFeelClient.GetEmotionAsync(), 10);
+        IO_Utilities.Logging("Emotion: " + emotion);
+        Thread.Sleep(TimeSpan.FromMinutes(10));
     }
     IO_Utilities.Logging("RPI-Moodlight Exit");
 }
